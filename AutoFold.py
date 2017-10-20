@@ -88,7 +88,7 @@ class AutoFoldListener(sublime_plugin.EventListener):
   def fold_tags(self, view, tags):
     for tag in tags:
       result = view.find_all(r'(?<=<' + re.escape(tag) + '>)(.|\n)*?(?=</'
-             + re.escape(tag) + '>)', sublime.IGNORECASE)
+             + re.escape(tag.split(" ")[0]) + '>)', sublime.IGNORECASE)
       view.fold(result)
 
 
